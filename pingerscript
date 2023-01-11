@@ -1,0 +1,30 @@
+#!/bin/bash
+
+export ipblock=$1 # orn: ./ayse.sh 192.168.1. 1 255 50
+export start=$2
+export end=$3
+export maxp=$4
+export outputfile=out
+
+>$outputfile
+
+pinger () {
+        ip=$1
+        ping -w1 -c1 $ip  &>/dev/null
+        if [ $? -eq 0 ]; then
+                output="$ip is up"
+        else
+                output="$ip is down"
+        fi
+        echo $output >> $outputfile
+}
+
+counter=0
+for i in $(seq $start $end); do
+        counter=$(expr $counter + 1)
+        pinger ${ipblock}${i} &
+        if [[ "$(expr $counter % $maxp)" == "0" ]]; then
+                wait
+        fi
+done
+~        
