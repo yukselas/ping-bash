@@ -14,7 +14,7 @@ fi
 
 
 multicurlprocess () {
-	 cmd="curl -s --location -X  POST 'https://devk8s.isimplatform.io/cerberus/api/license/allocate' \
+	 cmd="curl -s --location -X  POST 'https://abc/api/license/allocate' \
 --header 'Content-Type: application/json' -d '{"'"'"user"'"'":1,"'"'"asset"'"'":0}' -o $logdir/$1.output"
  #echo $cmd
     echo $cmd > $logdir/$1.cmd 
