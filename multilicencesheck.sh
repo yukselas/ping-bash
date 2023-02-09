@@ -14,7 +14,7 @@ fi
 
 
 multicurlprocess () {
-	 cmd="curl -s --location --request  GET 'https://devk8s.isimplatform.io/cerberus/api/license/checkLicense' \
+	 cmd="curl -s --location --request  GET 'abc/api/license/checkLicense' \
 --header 'Content-Type: application/json' \
  -o $logdir/$1.output"
     echo $cmd > $logdir/$1.cmd 
